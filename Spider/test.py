@@ -5,6 +5,7 @@ from time import sleep
 import smtplib
 from email.mime.text import MIMEText
 import selenium.webdriver.support.ui as ui
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 def send_email():
