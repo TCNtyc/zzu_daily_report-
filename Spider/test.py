@@ -58,22 +58,21 @@ if __name__ == '__main__':
     driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=chromedriver)
     driver.get('https://jksb.v.zzu.edu.cn')
 
-    sleep(10)
+    sleep(5)
     driver.switch_to.frame('my_toprr')  # 需先跳转到iframe框架
-    WebDriverWait.until(lambda driver: driver.find_element_by_name('uid'))
+    sleep(5)
     driver.find_element_by_name('uid').send_keys('202124100229')
-    WebDriverWait.until(lambda driver: driver.find_element_by_name('upw'))
+    sleep(5)
     driver.find_element_by_name('upw').send_keys('2003TYCmiku@233')
     driver.find_element_by_name('smbtn').click()
 
-    sleep(10)
-    driver.switch_to.frame('zzj_top_6s')  # 需先跳转到iframe框架
-    WebDriverWait.until(lambda driver: driver.find_element_by_xpath('/ html / body / form / div / div[11] / div[3] / div[4]'))
-    driver.find_element_by_xpath('/ html / body / form / div / div[11] / div[3] / div[4]').click()
 
+    driver.switch_to.frame('zzj_top_6s')  # 需先跳转到iframe框架)
+    driver.find_element_by_xpath('/ html / body / form / div / div[11] / div[3] / div[4]').click()
     sleep(10)
-    WebDriverWait.until(lambda driver: driver.find_element_by_xpath('/html/body/form/div/div[7]/div[4]'))
+
     driver.find_element_by_xpath('/html/body/form/div/div[7]/div[4]').click()
+    sleep(10)
     send_email()
     print("打卡结束")
     sleep(10)  # 终端给你时间确认已经打卡成功
