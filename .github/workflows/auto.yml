@@ -30,8 +30,8 @@ jobs:
            python-version: 3.7
       - name: 'Install requirements'
         run: |
-	pip install -r ./Spider/requirements.txt
-	pip install msedge-selenium-tools selenium==3.141 
+          pip install msedge-selenium-tools selenium==3.141
+          pip install -r ./Spider/requirements.txt
       - name: 'Working'
         run: |
           sudo cp -p ./chrome/chromedriver /usr/bin/
