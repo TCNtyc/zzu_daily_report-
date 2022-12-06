@@ -48,7 +48,7 @@ def send_email():
 
 if __name__ == '__main__':
     # 模拟浏览器打开网站
-    driver = webdriver.Edge()
+    driver = webdriver.Chrome()
     wait = ui.WebDriverWait(driver, 10)
     driver.get('https://jksb.v.zzu.edu.cn')
 
