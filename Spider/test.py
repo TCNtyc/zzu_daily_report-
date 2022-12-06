@@ -2,12 +2,9 @@ from time import sleep
 from selenium import webdriver
 import smtplib
 from email.mime.text import MIMEText
-from msedge.selenium_tools import EdgeOptions
-from msedge.selenium_tools import Edge
-from selenium.webdriver.support.select import Select
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 import selenium.webdriver.support.ui as ui
+from selenium.webdriver.chrome.options import Options
+import os
 
 
 def send_email():
@@ -55,7 +52,7 @@ if __name__ == '__main__':
     wait = ui.WebDriverWait(driver, 10)
     driver.get('https://jksb.v.zzu.edu.cn')
 
-    sleep(10)
+    sleep(5)
     driver.switch_to.frame('my_toprr')  # 需先跳转到iframe框架
     wait.until(lambda driver: driver.find_element_by_name('uid'))
     driver.find_element_by_name('uid').send_keys('202124100229')
@@ -63,13 +60,13 @@ if __name__ == '__main__':
     driver.find_element_by_name('upw').send_keys('2003TYCmiku@233')
     driver.find_element_by_name('smbtn').click()
 
-    sleep(10)
+    sleep(5)
     driver.switch_to.frame('zzj_top_6s')  # 需先跳转到iframe框架
     wait.until(lambda driver: driver.find_element_by_xpath('/ html / body / form / div / div[11] / div[3] / div[4]'))
     driver.find_element_by_xpath('/ html / body / form / div / div[11] / div[3] / div[4]').click()
-    sleep(10)
-    wait.until(lambda driver: driver.find_element_by_xpath('/html/body/form/div/div[7]/div[4]'))
-    driver.find_element_by_xpath('/html/body/form/div/div[7]/div[4]').click()
+    sleep(5)
+    wait.until(lambda driver: driver.find_element_by_xpath('/html/body/form/div/div[7]/div[2]/div[2]/div[6]/div[4]'))
+    driver.find_element_by_xpath('/html/body/form/div/div[7]/div[2]/div[2]/div[6]/div[4]').click()
     send_email()
     print("打卡结束")
     sleep(10)  # 终端给你时间确认已经打卡成功
